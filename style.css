@@ -1,0 +1,416 @@
+/* a minimalist set of CSS resets */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Merriweather:wght@300;400&family=Open+Sans:ital,wght@0,400;0,600;1,300&display=swap');
+@font-face {
+  font-family: 'DistrictPro';
+  src: url('https://cdn.glitch.com/c3c464b0-7f1e-4247-a634-705a8584a72f%2FDistrictPro-Book%202.otf?v=1624402106293');
+}
+
+/* default to border-box */
+html {
+ 
+}
+
+
+
+/* adjust typography defaults */
+body{
+    background-color: #fff;
+
+    font-family: 'DistrictPro','Open Sans', sans-serif;
+    overflow:hidden;
+}
+
+.splash {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  
+}
+
+.splash1{
+  z-index: 98;
+    position: fixed;
+    overflow:hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #006747;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: slideLeft;
+    animation-duration: 2s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+
+    
+}
+.splash1>.mainTitle{
+    
+
+    color: transparent;
+    font-size:72px;
+    position: absolute;
+    top: 33%;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-delay: 1.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  
+}
+
+.logo {
+
+}
+
+#left{
+
+        width: 50vw;
+        height: 50vw;
+        background-color: #71B2C9;
+         
+        clip-path: polygon(0 0, 0% 100%, 100% 100%);
+        
+        position: absolute; 
+  bottom: 0;
+  left: 0;
+  transform: translate(-100%,100%);
+  
+        animation-name: slideInL;
+    animation-duration: 1.25s;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+
+}
+#right{
+        width: 75vw;
+        height: 75vw;
+        background-color: #E5B53B;
+        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+  transform: translate(100%,100%);
+  
+        animation-name: slideInR;
+    animation-duration: 1.5s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+#right > div {
+
+  display: flex;
+  width: 50vw;
+  position: absolute;
+  bottom: 3vw;
+  right: 2vw;
+  color: white;
+  opacity: 0;
+  font-size: 2vw;
+  text-align: right;
+  animation-name: fill;
+    animation-duration: 1s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  
+}
+
+
+#nmg-logo{
+
+  position: absolute; 
+  bottom: 3.5vw;
+  left: 2vw;
+  width: 35vw;
+  opacity: 0;
+  animation-name: fill;
+    animation-duration: 1s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+
+}
+
+
+#cnw-logo{
+
+  position: absolute; 
+  bottom: 6vw;
+  right: 0%;
+  width: 33vw;
+    animation-name: fill;
+    animation-duration: 1s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  
+}
+
+.sliderWrapper{
+  position: absolute; 
+        filter: drop-shadow(0 -.25em 10px rgba(50, 50, 50, 0.5));
+  width: 100%;
+    height: 100%;
+}
+
+.splash2{
+ z-index:95;
+  position: fixed;
+    overflow:hidden;
+    height: 100%;
+    width: 100%;
+    background-color: #54585A;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+button {
+  
+  width: 40vw;
+  height: 10vw;
+  background-color: #54585A;
+  color: #71B2C9;
+  border-radius:5px;
+  border: 3px solid #71B2C9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-transform:uppercase;
+  font-size:5vw;
+  font-weight:bold;
+   align-self: center;
+  margin:auto
+
+ 
+}
+
+
+
+
+button:disabled {
+  border-color: #9EA2A2;
+  color: transparent;
+  background-image: url("https://cdn.glitch.com/c3c464b0-7f1e-4247-a634-705a8584a72f%2Fdot.gif?v=1624506545113");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; 
+   background-blend-mode: exclusion;
+}
+
+
+.ready {
+         animation-name: slideUp;
+    animation-duration: 2s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+  
+}
+
+.splash-content{
+  margin-left: 5vw;
+  margin-right: 5vw;
+  color: white;
+  align-content: center;
+  justify-content:center;
+   align-items: center;
+  display:inline-block;
+  position: absolute;
+  text-align:left;
+}
+
+.splash2 h1{
+    font-size: 32px;
+    color: white;
+    margin: 0;
+    padding: 0;
+   
+  
+}
+
+.splash3{
+   z-index: 70;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: #71B2C9;
+    background-blend-mode: overlay;
+    display: flex;
+ 
+    align-items: center;
+    justify-content: center; 
+
+  
+ 
+}
+
+.splash3 > div {
+
+    display: flex;
+   flex-direction: column;
+  background-color: #54585AAA;
+  background-blend-mode: darken;
+  color: white;
+  border-radius: 5vw;
+   border: 3px solid #71B2C9;
+  padding: 5vw;
+  align-items: flex-start;
+  
+
+  
+}
+#clearInfo
+{
+  
+display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #71B2C9;
+    background-color: inherit;
+    width: 1em;
+    height: 1.5em;
+    border-radius: 50%;
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #71B2C9;
+    outline: none;
+
+    
+}
+
+.hidden {
+  display: none;
+}
+
+
+  .AR-UI {
+   height: 20%;
+    
+    position: fixed;
+    top: 0%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+    
+  }
+.AR-UI>a{
+  font-size:48px;
+  color: white;
+  text-shadow: 2px 2px #54585A99;
+  position: absolute;
+  right:2vw;
+  top:2vw;
+}
+
+
+
+
+@keyframes fadeIn{
+    0%{
+        padding-top: 20px;
+        color: transparent;
+    }
+    100%{
+        padding-top: 0;
+        color: white;
+
+    }
+}
+
+@keyframes slideLeft{
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(100%, 0);
+    }
+}
+
+@keyframes slideUp{
+    0%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(0, -100%);
+    }
+}
+
+@keyframes slideInR{
+    0%{
+        transform: translate(100, 100);
+    }
+    100%{
+        transform: translate(0, 0);
+
+    }
+}
+
+@keyframes slideInL{
+    0%{
+        transform: translate(-100, 100);
+    }
+    100%{
+        transform: translate(0, 0);
+
+    }
+}
+
+
+@keyframes fill {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+@keyframes slidebg {
+  0% {
+    background-image: linear-gradient(0deg, #71B2C9 0%, #5D87A1 49%, #5D87A1 80%, #71B2C9 100%);
+  }
+  20% {
+    background-image: linear-gradient(72deg, #71B2C9 0%, #5D87A1 49%, #5D87A1 80%, #71B2C9 100%);
+  }
+  40% {
+    background-image: linear-gradient(144deg, #71B2C9 0%, #5D87A1 49%, #5D87A1 80%, #71B2C9 100%;
+  }
+  60% {
+    background-image: linear-gradient(216deg, #71B2C9 0%, #5D87A1 49%, #5D87A1 80%, #71B2C9 100%);
+  }
+  80% {
+    background-image: linear-gradient(288deg, #71B2C9 0%, #5D87A1 49%, #5D87A1 80%, #71B2C9 100%);
+  }
+  100% {
+   
+    background-image: linear-gradient(360deg, #71B2C9 0%, #5D87A1 49%, #5D87A1 80%, #71B2C9 100%);
+  
+  }
+
+
+/* images and videos max out at full width */
+img,
+video {
+  
+  height: auto;
+  max-width: 100%;
+}
+

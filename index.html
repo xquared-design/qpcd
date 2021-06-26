@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@NewMediaGallery" />
+    <meta name="twitter:creator" content="@NewMediaGallery" />
+    <meta property="og:url"                content="https://qpcd.glitch.me/" />
+
+    <meta property="og:title"              content="Wander Queen's Park" />
+    <meta property="og:description"        content="An interactive AR experience" />
+    <meta property="og:image"              content="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Funnamed.jpg?v=1624689187622" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
+    <script src="script.js"></script>
+    <script src="cursor-listener.js"></script>
+    <script src="target-marker.js"></script>
+    <script src="merge-images.js"></script>
+   
+
+    <title>Wander The Park</title>
+  </head>
+  <body>
+    <!-- splash pages -->
+    <div class="splash">
+      <div class="splash1 ">
+        <div class="sliderWrapper">
+          <div id="right">
+            <div class="logo">
+              <img
+                id="cnw-logo"
+                src="https://cdn.glitch.com/c3c464b0-7f1e-4247-a634-705a8584a72f%2FCNW_Logo_white.svg?v=1623930825074"
+                alt="cnw logo"
+              />
+            </div>
+            <div>
+              This project has been made possible thanks to the support of the
+              Government of Canada
+            </div>
+          </div>
+        </div>
+        <div class="sliderWrapper">
+          <div id="left">
+            <div class="logo">
+              <img
+                id="nmg-logo"
+                src="https://cdn.glitch.com/c3c464b0-7f1e-4247-a634-705a8584a72f%2FNMG%20stacked%20logo.svg?v=1623929968016"
+                alt="nmg logo"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="mainTitle">Re:Growth</div>
+      </div>
+      <div class="splash2">
+        <div class="splash-content">
+          <h1>Queen's Park History</h1>
+          <p>
+            Wander Queen's Park reflects on the unceded territory of the
+            Halq'eméylem speaking peoples. This refers to a language group that
+            more widely encompasses the Indigenous people who used and continue
+            to use this land, and includes nations such as the Qayqayt,
+            qʼʷa:n̓ƛʼən̓ (Kwantlen), Katzie, kʷikʷəƛw̓əm (Kwikwetlem), xʷməθkʷəy̓əm
+            (Musqueam), Stó:lō, sc̓əwaθn məsteyəxʷ (Tsawwassen), and
+            Tsleil-Waututh.
+          </p>
+          <p>
+            The Re:Grow AR Experience draws from ecology indigenous to these
+            lands. We acknowledge these plants are an important part of the
+            living traditions, history, and knowledge of the Halq'eméylem
+            speaking peoples.
+          </p>
+          <button
+            type="button"
+            disabled
+            class="btn disabled"
+            onclick="toggleReady()"
+            alt="Enter AR"
+          >
+            Enter AR
+          </button>
+        </div>
+      </div>
+      <div class="splash3">
+        <div class="splash-content">
+
+          <p>
+          Welcome to the Wander the Park Re:Growth AR experience.
+          
+          All of the plants seen in your AR window are indigenous to Queen's Park
+          </p>
+          <p>
+          Tap on the preview to view more plants. Hold the Green cursor at the desired location to place plants.
+          </p>
+            
+          <p>
+          Look around Queen's Park for easter eggs!
+          </p>
+        <button
+            type="button"
+            
+            id="clearInfo"
+            onclick="clearInfo()"
+            alt="dismissInfo"
+                >X</button>
+
+        </div>
+
+      </div>
+    </div>
+    <a-scene
+      embedded
+      antialias="true"
+      arjs="sourceType: webcam; debugUIEnabled: false; "
+      vr-mode-ui="enabled: false"
+      loading-screen="enabled:false;"
+           
+             
+      
+      
+            
+    >
+      <a-assets>
+        <a-asset-item
+          id="tree-obj"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Ftree.obj?v=1624562152153"
+        ></a-asset-item>
+        <a-asset-item
+          id="tree-mtl"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Ftree.mtl?v=1624562111492"
+        ></a-asset-item>
+        <a-asset-item
+          id="rose-obj"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Fwildflower.obj?v=1624143134518"
+        ></a-asset-item>
+        <a-asset-item
+          id="rose-mtl"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Fwildflower.mtl?v=1624143110267"
+        ></a-asset-item>
+        <a-asset-item
+          id="trillium-obj"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Ftrillium.obj?v=1624138744969"
+        ></a-asset-item>
+        <a-asset-item
+          id="trillium-mtl"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Ftrillium.mtl?v=1624138739893"
+        ></a-asset-item>
+        <a-asset-item
+          id="fern-obj"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2FfernAR.obj?v=1624041064939"
+        ></a-asset-item>
+        <a-asset-item
+          id="fern-mtl"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2FfernAR.mtl?v=1624041063907"
+        ></a-asset-item>
+        <a-asset-item
+          id="bush-obj"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Fbush.obj?v=1624139960349"
+        ></a-asset-item>
+        <a-asset-item
+          id="bush-mtl"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Fbush.mtl?v=1624139951207"
+        ></a-asset-item>
+        <a-asset-item
+          id="buttercup-obj"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Fbuttercup.obj?v=1624138087118"
+        ></a-asset-item>
+        <a-asset-item
+          id="buttercup-mtl"
+          src="https://cdn.glitch.com/40ff3be8-0b5f-48e1-8820-e9967161abbf%2Fbuttercup.mtl?v=1624138081664"
+        ></a-asset-item>
+      </a-assets>
+
+      <!--
+  <a-entity cursor ></a-entity>
+  <a-plane
+                  position="0 -1.5 0"
+                  rotation="-90 0 0"
+                  width="100"
+                  height="100"
+                   material="color: white; transparent: true; opacity: 0.0"
+                  
+                  
+                  id="element"
+                ></a-plane>
+      -->
+      <a-ring
+        id="ground"
+        radius-inner="4"
+        radius-outer="90"
+        position="0 -1.5 0"
+        rotation="-90 0 0"
+        material="color: black; transparent: true; opacity: 0"
+        class="cursor-listener"
+        target-marker
+        cursor-listener
+              
+      >
+          
+
+      </a-ring>
+       
+      
+      <a-entity class="rig">
+       
+      <a-camera
+          raycaster="far: 45; near:2; objects: .cursor-listener"
+                wasd-controls
+        rotation-reader
+        id="camera"
+        position="0 1.6 0"
+        arjs-look-controls="smoothingFactor: 0.1"
+      >
+        <a-entity cursor="fuse: true; fuseTimeout: 1500; ">
+               
+
+          </a-entity>
+        <text click-to-clear>clear</text>
+        <a-entity
+          id="preview"
+          look-at="#camera"
+          position="0 0.01 -0.5" 
+>
+            <a-entity id="model" class="rose"
+            obj-model="obj: #rose-obj;"
+            material="shader: flat; color: #71B2C9; transparent:true; opacity: 0.5; wireframe: true; wireframeLinewidth:1 "
+            scale="0.02 0.02 0.02"
+            animation="property: rotation; to: 0 360; dur: 10000; easing: linear; loop: true"
+     
+            ></a-entity>
+          </a-entity>
+            
+      </a-camera>
+         <a-ring
+            id="mark"
+            material="color: green;"
+            rotation="-90 0 0"
+            radius-inner="0.15"
+            radius-outer="0.35"
+
+            animation="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1;"
+
+          >  </a-ring>
+        </a-entity>
+
+    
+       
+
+    
+      <a-entity
+        obj-model="obj: #tree-obj; mtl: #tree-mtl"
+        position="-80 -4.5 -80"
+        rotation="0 100 0"
+      ></a-entity>
+    </a-scene>
+    <div class="AR-UI">
+      <a id="snap-button" class="hidden fas fa-camera"></a>
+      <a id="share-button" class="hidden fas fa-share-alt-square"></a>
+      
+    </div>
+  </body>
+  <script>
+     //document.querySelector('a-scene').addEventListener('mouseup', function () {
+       
+       //console.log("entity clicked");
+     //});
+  </script>
+</html>
